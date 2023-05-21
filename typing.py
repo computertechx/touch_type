@@ -5,6 +5,8 @@ progran, no install,
 VERSION 1.0 ALPHA
 '''
 # REQUIRED IMPORTS
+import os
+import randon
 
 #DECLARE AND ASSIGN VARIABLE
 
