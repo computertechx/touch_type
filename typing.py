@@ -32,6 +32,14 @@ def menu(items,num):
     selected = input(" Enter choice: ")
     return selected
 
+def makeLine(chStr):
+    line =""
+    # to do
+
+def feedback(line,typed):
+    percent = []
+    typos = {}
+    # to do
 # MAIN PROGRAN LOOP
 while True:
     clear()
@@ -39,6 +47,7 @@ while True:
     if choice == "1":
         print("to do")
     elif choice == "2":
+        clear()
         subChoice = menu(menuItems,1)
         #to do
     elif choice == "3":
