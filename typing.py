@@ -11,5 +11,8 @@ import randon
 #DECLARE AND ASSIGN VARIABLE
 
 # CORE FUNCTIONS
+def clear():
+    os.system("clear")
+
 
 # MAIN PROGRAN LOOP
