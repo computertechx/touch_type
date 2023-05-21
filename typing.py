@@ -33,3 +33,16 @@ def menu(items,num):
     return selected
 
 # MAIN PROGRAN LOOP
+while True:
+    clear()
+    choice = menu(menuItems,0)
+    if choice == "1":
+        print("to do")
+    elif choice == "2":
+        subChoice = menu(menuItems,1)
+        #to do
+    elif choice == "3":
+        break
+    else:
+        invalidOption()
+        clear()
