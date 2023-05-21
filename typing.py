@@ -6,7 +6,7 @@ VERSION 1.0 ALPHA
 '''
 # REQUIRED IMPORTS
 import os
-import randon
+import random
 
 #DECLARE AND ASSIGN VARIABLE
 choice = 0
@@ -22,11 +22,14 @@ def invalidOption():
     print("Invalid option")
     input("press Enter to continue ")
 
-def menu(items):
+def menu(items,num):
     print("Please select an option:")
     i=1
-    for item in items:
-        print(" *"+item+" "*(17-len(item))+"["+i+"]")
+    menuLs = items[num]
+    for item in menuLs:
+        print(" *"+item+" "*(15-len(item))+"[ "+str(i)+" ]")
         i += 1
+    selected = input(" Enter choice: ")
+    return selected
 
 # MAIN PROGRAN LOOP
