@@ -22,5 +22,11 @@ def invalidOption():
     print("Invalid option")
     input("press Enter to continue ")
 
+def menu(items):
+    print("Please select an option:")
+    i=1
+    for item in items:
+        print(" *"+item+" "*(17-len(item))+"["+i+"]")
+        i += 1
 
 # MAIN PROGRAN LOOP
