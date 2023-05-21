@@ -9,6 +9,10 @@ import os
 import randon
 
 #DECLARE AND ASSIGN VARIABLE
+choice = 0
+subChoice = 0
+menuItems = [["Letter Drill","Sentence Drill","Quit"],["Drill 1","Drill 2","Drill 3","Back"]]
+
 
 # CORE FUNCTIONS
 def clear():
