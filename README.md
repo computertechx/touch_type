@@ -1,7 +1,7 @@
 # touch_type
 A typing tutor/training program in python
 
-# Why i reated the app
+# Why i created the app
 I'm visually challenged 
 and wanted to improve my 
 typing as it will aid in my 
@@ -19,7 +19,7 @@ needed on device to run,
 just copy and paste the file locally 
 
 # reqiure python
-check python3 is install, on command
+To check if python3 is install, on command
 line(CLI) type: 
 
 python3 --version
@@ -27,6 +27,3 @@ python3 --version
 click enter, if python3 
 is on system it will 
 return a version number
-
-
-
