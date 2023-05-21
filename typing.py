@@ -14,5 +14,9 @@ import randon
 def clear():
     os.system("clear")
 
+def invalidOption():
+    print("Invalid option")
+    input("press Enter to continue ")
+
 
 # MAIN PROGRAN LOOP
