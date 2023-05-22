@@ -12,6 +12,7 @@ import random
 choice = 0
 subChoice = 0
 menuItems = [["Letters Drill","Words Drill","Quit"],["Words Drill 1","Words Drill 2","Words Drill 3","*Go back"],["Beginner","Intermediate","Advance","*Go back"]]
+drills = ["fj ","dk ","sl ","a; ","fjgh ","frju "]
 
 
 # CORE FUNCTIONS
@@ -32,10 +33,18 @@ def menu(items,num):
     selected = input(" Enter choice: ")
     return selected
 
-def makeLine(chStr):
+def makeLine(chStr,num):
     line =""
+    i = 0
+    ch = ""
     # to do
-
+    while i < num:
+        ch = random.choice(chStr)
+        if i==num-1 and ch ==" ":
+            continue
+        line += ch
+        i += 1
+    return line
 def feedback(line,typed):
     percent = []
     typos = {}
@@ -56,3 +65,16 @@ while True:
     else:
         invalidOption()
         clear()
+
+    #All lesson training
+    if subChoice == "4":
+        continue
+    elif choice =="1" and subChoice == "1":
+        clear()
+        dLine =""
+        for strList in drills:
+            dLine = makeLine(strList,20)
+
+            print("drill:"+dLine)
+            typing =  input("type :")
+            clear()
