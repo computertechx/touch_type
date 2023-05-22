@@ -15,6 +15,7 @@ menuItems = [["Letters Drill","Words Drill","Quit"],["Words Drill 1","Words Dril
 drills = ["fj","dk","sl","a;","fjgh","frju"]
 accuracyPerLine=[]
 wrongLetters = ""
+abc = "abcdef ghijklmnop qrstuvwxyz"
 lineWidth = 20
 
 # CORE FUNCTIONS
@@ -101,7 +102,24 @@ while True:
     #All lesson training
     if subChoice == "4":
         continue
-    elif choice =="1":
+    elif choice == "1" and subChoice == "3":
+        dLine = ""
+        i = 0
+        while i < 9:
+            clear()
+            dLine = makeLine(abc + abc.upper() + " ",lineWidth)
+            print("drill:"+dLine)
+            typing = input("type :")
+            percent,mistakes = feedback(dLine,typing)
+            accuracyPerLine.append(percent)
+            wrongLetters += mistakes
+            i += 1
+        printReport(accuracyPerLine,wrongLetters)
+        # to do yes/no mistake drill
+        pauseScr()
+        accuracyPerLine = []
+        wrongLetters = ""
+    elif choice == "1":
         clear()
         dLine =""
         for strCh in drills:
@@ -116,6 +134,8 @@ while True:
             accuracyPerLine.append(linePercent)
             wrongLetters += mistakes
         printReport(accuracyPerLine,wrongLetters)
+        #to do yes/no mistakes drill
         pauseScr()
         accuracyPerLine =[]
         wrongLetters =""
+
