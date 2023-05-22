@@ -11,7 +11,7 @@ import random
 #DECLARE AND ASSIGN VARIABLE
 choice = 0
 subChoice = 0
-menuItems = [["Letter Drill","Sentence Drill","Quit"],["Drill 1","Drill 2","Drill 3","Back"]]
+menuItems = [["Letters Drill","Words Drill","Quit"],["Words Drill 1","Words Drill 2","Words Drill 3","*Go back"],["Beginner","Intermediate","Advance","*Go back"]]
 
 
 # CORE FUNCTIONS
@@ -45,7 +45,8 @@ while True:
     clear()
     choice = menu(menuItems,0)
     if choice == "1":
-        print("to do")
+        clear()
+        subChoice = menu(menuItems,2)
     elif choice == "2":
         clear()
         subChoice = menu(menuItems,1)
