@@ -12,16 +12,16 @@ import random
 choice = 0
 subChoice = 0
 menuItems = [["Letters Drill","Words Drill","Quit"],["Words Drill 1","Words Drill 2","Words Drill 3","*Go back"],["Beginner","Intermediate","Advance","*Go back"]]
-drills = ["fj ","dk ","sl ","a; ","fjgh ","frju "]
+drills = ["fj","dk","sl","a;","fjgh","frju"]
 accuracyPerLine=[]
 wrongLetters = ""
-mistyped = {}
 lineWidth = 20
 
 # CORE FUNCTIONS
 def clear():
     os.system("clear")
-
+def pauseScr():
+    input("press enter to continue...")
 def invalidOption():
     print("Invalid option")
     input("press Enter to continue ")
@@ -61,11 +61,25 @@ def feedback(line,typed):
         if line[i] == typed[i]:
             correct += 1
         else:
-            typos += typed[i]
+            typos += line[i]
         i += 1
     if correct > 0:
         percent = round((correct/count)*100)
     return percent, typos
+
+def printReport(percentList,strWrongL):
+    mistyped = {}
+    print("Accuracy percent per line:")
+    print(percentList)
+    print("\n\nLetters mistyped:")
+    for ch in strWrongL:
+        if ch in mistyped:
+            mistyped[ch] += 1
+        else:
+            mistyped[ch] = 1
+    print(mistyped)
+    print()
+
 # MAIN PROGRAN LOOP
 while True:
     clear()
@@ -87,16 +101,21 @@ while True:
     #All lesson training
     if subChoice == "4":
         continue
-    elif choice =="1" and subChoice == "1":
+    elif choice =="1":
         clear()
         dLine =""
-        for strList in drills:
-            dLine = makeLine(strList,20)
-
+        for strCh in drills:
+            if subChoice == "1":
+                dLine = makeLine(strCh + " ",lineWidth)
+            elif subChoice == "2":
+                dLine = makeLine(strCh + strCh.upper() + " ",lineWidth)
             print("drill:"+dLine)
             typing =  input("type :")
             clear()
             linePercent,mistakes = feedback(dLine,typing)
             accuracyPerLine.append(linePercent)
             wrongLetters += mistakes
-
+        printReport(accuracyPerLine,wrongLetters)
+        pauseScr()
+        accuracyPerLine =[]
+        wrongLetters =""
