@@ -61,6 +61,7 @@ while True:
         subChoice = menu(menuItems,1)
         #to do
     elif choice == "3":
+        clear()
         break
     else:
         invalidOption()
