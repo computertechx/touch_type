@@ -13,7 +13,10 @@ choice = 0
 subChoice = 0
 menuItems = [["Letters Drill","Words Drill","Quit"],["Words Drill 1","Words Drill 2","Words Drill 3","*Go back"],["Beginner","Intermediate","Advance","*Go back"]]
 drills = ["fj ","dk ","sl ","a; ","fjgh ","frju "]
-
+accuracyPerLine=[]
+wrongLetters = ""
+mistyped = {}
+lineWidth = 20
 
 # CORE FUNCTIONS
 def clear():
@@ -45,10 +48,24 @@ def makeLine(chStr,num):
         line += ch
         i += 1
     return line
+
 def feedback(line,typed):
-    percent = []
-    typos = {}
-    # to do
+    percent = 0
+    typos = ""
+    i = 0
+    count = len(typed)
+    correct = 0
+    if len(line) < len(typed):
+        count = len(line)
+    while i < count:
+        if line[i] == typed[i]:
+            correct += 1
+        else:
+            typos += typed[i]
+        i += 1
+    if correct > 0:
+        percent = round((correct/count)*100)
+    return percent, typos
 # MAIN PROGRAN LOOP
 while True:
     clear()
@@ -79,3 +96,7 @@ while True:
             print("drill:"+dLine)
             typing =  input("type :")
             clear()
+            linePercent,mistakes = feedback(dLine,typing)
+            accuracyPerLine.append(linePercent)
+            wrongLetters += mistakes
+
