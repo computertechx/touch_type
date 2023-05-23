@@ -1,3 +1,4 @@
+
 '''
 A typiny tutor/traininy
 progran, no install,
@@ -22,7 +23,7 @@ lineWidth = 20
 def clear():
     os.system("clear")
 def pauseScr():
-    input("press enter to continue...")
+    input("press Enter to continue ")
 def invalidOption():
     print("Invalid option")
     input("press Enter to continue ")
@@ -41,7 +42,7 @@ def makeLine(chStr,num):
     line =""
     i = 0
     ch = ""
-    # to do
+    #  loop and create str
     while i < num:
         ch = random.choice(chStr)
         if i==num-1 and ch ==" ":
@@ -80,6 +81,26 @@ def printReport(percentList,strWrongL):
             mistyped[ch] = 1
     print(mistyped)
     print()
+# impurw funtion
+def mistypedDrill(strCh,num):
+    n = 5
+    yesNo = "1"
+    if yesNo == input("Practice on mistyped letters\n yes:[ 1 ] no:[ 2 ]:"):
+        print()
+        try:
+            n = int(input("How many lines: "))
+        except:
+            print("Not a valid, will use default(5)")
+            n = 5
+        for i in range(n):
+            clear()
+            dLine = makeLine(strCh,num)
+            print("drill: "+dLine)
+            typing = input("typed: ")
+            percent,mistakes = feedback(dLine,typing)
+            print(str(percent)+"% accurate")
+            pauseScr()
+        print("Drill completed, return to main menu")
 
 # MAIN PROGRAN LOOP
 while True:
@@ -115,7 +136,8 @@ while True:
             wrongLetters += mistakes
             i += 1
         printReport(accuracyPerLine,wrongLetters)
-        # to do yes/no mistake drill
+        if not wrongLetters == "":
+            mistypedDrill(wrongLetters + " ",lineWidth)
         pauseScr()
         accuracyPerLine = []
         wrongLetters = ""
@@ -134,7 +156,8 @@ while True:
             accuracyPerLine.append(linePercent)
             wrongLetters += mistakes
         printReport(accuracyPerLine,wrongLetters)
-        #to do yes/no mistakes drill
+        if not wrongLetters == "":
+            mistypedDrill(wrongLetters + " ",lineWidth)
         pauseScr()
         accuracyPerLine =[]
         wrongLetters =""
