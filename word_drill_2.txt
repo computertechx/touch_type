@@ -1,0 +1,12 @@
+You can change the words
+ of this drill simply 
+by editing the files,
+ there are three files.
+ First is word_drill_1.txt ,
+ second is word_drill_2.txt,
+ and third is word_drill_3.txt
+The program reads the
+ file line by line, so 
+make sure each line is 
+not crowded with words
+ beyond your comfort level
