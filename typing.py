@@ -161,4 +161,11 @@ while True:
         pauseScr()
         accuracyPerLine =[]
         wrongLetters =""
-
+    elif choice == "2":
+        clear()
+        if subChoice == "1":
+            pauseScr()
+        elif subChoice == "2":
+            pauseScr()
+        elif subChoice == "3":
+            pauseScr()
