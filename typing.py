@@ -108,8 +108,8 @@ while True:
         while i < 9:
             clear()
             dLine = makeLine(abc + abc.upper() + " ",lineWidth)
-            print("drill:"+dLine)
-            typing = input("type :")
+            print("drill: "+dLine)
+            typing = input("typed: ")
             percent,mistakes = feedback(dLine,typing)
             accuracyPerLine.append(percent)
             wrongLetters += mistakes
@@ -127,8 +127,8 @@ while True:
                 dLine = makeLine(strCh + " ",lineWidth)
             elif subChoice == "2":
                 dLine = makeLine(strCh + strCh.upper() + " ",lineWidth)
-            print("drill:"+dLine)
-            typing =  input("type :")
+            print("drill: "+dLine)
+            typing =  input("typed: ")
             clear()
             linePercent,mistakes = feedback(dLine,typing)
             accuracyPerLine.append(linePercent)
