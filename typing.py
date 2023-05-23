@@ -99,7 +99,9 @@ def mistypedDrill(strCh,num):
             percent,mistakes = feedback(dLine,typing)
             print(str(percent)+"% accurate")
             pauseScr()
+        clear()
         print("Drill completed, return to main menu")
+        pauseScr()
 
 # MAIN PROGRAN LOOP
 while True:
@@ -137,7 +139,6 @@ while True:
         printReport(accuracyPerLine,wrongLetters)
         if not wrongLetters == "":
             mistypedDrill(wrongLetters + " ",lineWidth)
-        pauseScr()
         accuracyPerLine = []
         wrongLetters = ""
     elif choice == "1":
@@ -157,7 +158,6 @@ while True:
         printReport(accuracyPerLine,wrongLetters)
         if not wrongLetters == "":
             mistypedDrill(wrongLetters + " ",lineWidth)
-        pauseScr()
         accuracyPerLine =[]
         wrongLetters =""
     elif choice == "2":
