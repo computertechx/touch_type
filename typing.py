@@ -1,4 +1,3 @@
-
 '''
 A typiny tutor/traininy
 progran, no install,
@@ -163,9 +162,20 @@ while True:
         wrongLetters =""
     elif choice == "2":
         clear()
+        filePath = ""
         if subChoice == "1":
-            pauseScr()
+            filePath = "./word_drill_1.txt"
         elif subChoice == "2":
-            pauseScr()
+            filePath = "./word_drill_2.txt"
         elif subChoice == "3":
+            filePath = "./word_drill_3.txt"
+        with open(filePath) as dFile:
+            for dLine in dFile.readlines():
+                print("drill: " + dLine)
+                typing = input("typed: ")
+                clear()
+                #to do implement a wordChk feedback
+            print("Drill completed, return to main menu")
             pauseScr()
+            dFile.close()
+
