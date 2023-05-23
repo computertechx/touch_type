@@ -15,6 +15,7 @@ menuItems = [["Letters Drill","Words Drill","Quit"],["Words Drill 1","Words Dril
 drills = ["fj","dk","sl","a;","fjgh","frju"]
 accuracyPerLine=[]
 wrongLetters = ""
+wrongWords = ""
 abc = "abcdef ghijklmnop qrstuvwxyz"
 lineWidth = 20
 
@@ -22,7 +23,7 @@ lineWidth = 20
 def clear():
     os.system("clear")
 def pauseScr():
-    input("press Enter to continue ")
+    input("press Enter to continue")
 def invalidOption():
     print("Invalid option")
     input("press Enter to continue ")
@@ -49,7 +50,27 @@ def makeLine(chStr,num):
         line += ch
         i += 1
     return line
-
+def wordFeedback(line,typed):
+    words = line.split(" ")
+    typedWords = typed.split(" ")
+    percent = 0
+    missedWords =""
+    correct = 0
+    count = len(words)
+    i = 0
+    if len(typedWords) < len(words):
+        count = len(typedWords)
+    while i < count:
+        if words[i] == typedWords[i]:
+            correct += 1
+        else:
+            missedWords += words[i] + " "
+        i += 1
+    if typed == "":
+        percent = 0
+    elif not correct == 0:
+        percent = round((correct/count)*100)
+    return percent,missedWords
 def feedback(line,typed):
     percent = 0
     typos = ""
@@ -173,6 +194,11 @@ while True:
             for dLine in dFile.readlines():
                 print("drill: " + dLine)
                 typing = input("typed: ")
+                percent,missedWords = wordFeedback(dLine,typing)
+                accuracyPerLine.append(percent)
+                wrongWords += missedWords
+                print("\n"+str(percent)+"% words matched")
+                pauseScr()
                 clear()
                 #to do implement a wordChk feedback
             print("Drill completed, return to main menu")
