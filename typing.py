@@ -12,11 +12,12 @@ import random
 choice = 0
 subChoice = 0
 menuItems = [["Letters Drill","Words Drill","Quit"],["Words Drill 1","Words Drill 2","Words Drill 3","*Go back"],["Beginner","Intermediate","Advance","*Go back"]]
-drills = ["fj","dk","sl","a;","fjgh","frju"]
+#drills = ["fj","dk","sl","a;","fjgh","frju"]
 accuracyPerLine=[]
 wrongLetters = ""
 wrongWords = ""
 abc = "abcdef ghijklmnop qrstuvwxyz"
+drills = ["fj","dk","sl","a;","fgjh","ftrjuy","deki","swlo","aq;p","fvbjmn","dxeki,","aq;zp/", abc]
 lineWidth = 20
 # drill for missing files
 missingFiles = ["Files are missing","Using temp alternative","Please download the Three","files included with typing.py","First file is word_drill_1.txt","Second file is word_drill_2.txt","Third file is word_drill_3.txt","Place three files in","Same folder as typing.py","Thanks for using my app"]
