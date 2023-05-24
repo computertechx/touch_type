@@ -112,7 +112,27 @@ def printReport(percentList,strWrongL):
     else:
         print("[ no mistyped letters ]\n  return to nain menu")
         pauseScr()
-
+def printWordReport(percentList,mtypedWords):
+    clear()
+    mistypedWords = []
+    print("Accuracy percent per line:")
+    print(percentList)
+    print("Mistyped Words:")
+    if not mtypedWords == "":
+        mistypedWords = mtypedWords.split(" ")
+        mistypedWF  = ""
+        i = 0
+        for word in mistypedWords:
+            mistypedWF += ("[" + word + "]")
+            i += 1
+            if i % 4 == 0:
+                mistypedWF += "\n"
+        print(mistypedWF)
+        pauseScr()
+    else:
+        print("[no mistyped words]")
+        print("Drill completed\n return to main menu")
+        pauseScr()
 # impure funtion
 def mistypedDrill(strCh,num):
     n = 5
@@ -216,6 +236,7 @@ while True:
                 print("Drill completed, return to main menu")
                 pauseScr()
                 dFile.close()
+            printWordReport(accuracyPerLine,wrongWords)
         else:
             print("to do")
             pauseScr()
