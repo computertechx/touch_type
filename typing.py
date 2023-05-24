@@ -38,7 +38,7 @@ def menu(items,num):
     selected = input(" Enter choice: ")
     return selected
 
-def makeLine(chStr,num):
+def makeLine(chStr,num,choiceNum = "1"):
     line =""
     i = 0
     ch = ""
@@ -48,6 +48,8 @@ def makeLine(chStr,num):
         if i==num-1 and ch ==" ":
             continue
         line += ch
+        if choiceNum == "2" and not i == num-1:
+            line += " "
         i += 1
     return line
 def wordFeedback(line,typed):
@@ -123,30 +125,33 @@ def printWordReport(percentList,mtypedWords):
         mistypedWF  = ""
         i = 0
         for word in mistypedWords:
-            mistypedWF += ("[" + word + "]")
+            mistypedWF += ("[" + word + "] ")
             i += 1
             if i % 4 == 0:
                 mistypedWF += "\n"
         print(mistypedWF)
-        pauseScr()
     else:
         print("[no mistyped words]")
         print("Drill completed\n return to main menu")
         pauseScr()
 # impure funtion
-def mistypedDrill(strCh,num):
+def mistypedDrill(strCh,num,choiceNum):
     n = 5
     yesNo = "1"
-    if yesNo == input("Practice on mistyped letters\n yes:[ 1 ] no:[ 2 ]:"):
+    if yesNo == input("Practice using mistyped values\n yes:[ 1 ] no:[ 2 ]:"):
         print()
         try:
-            n = int(input("How many lines: "))
+            n = int(input("How many lines[Enter=5]: "))
         except:
             print("Not a valid, will use default(5)")
             n = 5
         for i in range(n):
             clear()
-            dLine = makeLine(strCh,num)
+            if choiceNum == "1":
+                dLine = makeLine(strCh,num)
+            elif choiceNum == "2":
+                words = strCh.split(" ")
+                dLine = makeLine(words,4,"2")
             print("drill: "+dLine)
             typing = input("typed: ")
             percent,mistakes = feedback(dLine,typing)
@@ -190,7 +195,7 @@ while True:
             i += 1
         printReport(accuracyPerLine,wrongLetters)
         if not wrongLetters == "":
-            mistypedDrill(wrongLetters + " ",lineWidth)
+            mistypedDrill(wrongLetters + " ",lineWidth,choice)
         accuracyPerLine = []
         wrongLetters = ""
     elif choice == "1":
@@ -209,7 +214,7 @@ while True:
             wrongLetters += mistakes
         printReport(accuracyPerLine,wrongLetters)
         if not wrongLetters == "":
-            mistypedDrill(wrongLetters + " ",lineWidth)
+            mistypedDrill(wrongLetters + " ",lineWidth,choice)
         accuracyPerLine =[]
         wrongLetters =""
     elif choice == "2":
@@ -232,11 +237,14 @@ while True:
                     print("\n"+str(percent)+"% words matched")
                     pauseScr()
                     clear()
-                    #to do implement a wordChk feedback
-                print("Drill completed, return to main menu")
-                pauseScr()
+                    # close file
                 dFile.close()
+            # check report feedback
             printWordReport(accuracyPerLine,wrongWords)
+            if not wrongWords == "":
+                mistypedDrill(wrongWords,0,choice)
+            accuracyPerLine = []
+            wrongWords = ""
         else:
             print("to do")
             pauseScr()
