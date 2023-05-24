@@ -94,12 +94,13 @@ def printReport(percentList,strWrongL):
     print("Accuracy percent per line:")
     print(percentList)
     print("\n\nLetters mistyped:")
-    for ch in strWrongL:
-        if ch in mistyped:
-            mistyped[ch] += 1
-        else:
-            mistyped[ch] = 1
-    if not mistyped == {} :
+    if not strWrongL == "":
+        for ch in strWrongL:
+            if ch in mistyped:
+                mistyped[ch] += 1
+            else:
+                mistyped[ch] = 1
+        # format the data
         i = 0
         mistypedF = ""
         for mTyped in mistyped:
@@ -145,7 +146,6 @@ while True:
     elif choice == "2":
         clear()
         subChoice = menu(menuItems,1)
-        #to do
     elif choice == "3":
         clear()
         break
