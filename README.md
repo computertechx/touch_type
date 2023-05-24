@@ -27,3 +27,8 @@ python3 --version
 click enter, if python3 
 is on system it will 
 return a version number
+type to run from CLI, 
+note: navigate folder
+containing the files
+ 
+ python3 typing.py
