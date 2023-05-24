@@ -1,5 +1,29 @@
 # touch_type
 A typing tutor/training program in python
+#Instructions
+typing basic:
+Your left-hand finger 
+should be placed over 
+the [A, S, D, F] keys, 
+and the right-hand 
+fingers should be 
+placed over the 
+[J, K, L, ;] keys.
+There's a notch on 
+the F and J key, don't 
+look just feel for it, 
+let your other three 
+fingers(on each side) 
+fall into line once you 
+find it. Always seek  
+these home keys
+[ASDF] [JKL;] and never 
+look at the keys, 
+it's a better habit to 
+quickly improve. Your 
+Tums are used for spacebar 
+only, choose whichever 
+side is preferable.
 
 # Why i created the app
 I'm visually challenged 
