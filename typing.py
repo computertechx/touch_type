@@ -2,7 +2,7 @@
 A typiny tutor/traininy
 progran, no install,
  copy, paste and run(CLI)
-VERSION 1.0 ALPHA
+VERSION 1.0.0.1
 '''
 # REQUIRED IMPORTS
 import os
@@ -18,6 +18,8 @@ wrongLetters = ""
 wrongWords = ""
 abc = "abcdef ghijklmnop qrstuvwxyz"
 lineWidth = 20
+# drill for missing files
+missingFiles = ["Files are missing","Using temp alternative","Please download the Three","files included with typing.py","First file is word_drill_1.txt","Second file is word_drill_2.txt","Third file is word_drill_3.txt","Place three files in","Same folder as typing.py","Thanks for using my app"]
 
 # CORE FUNCTIONS
 def clear():
@@ -247,4 +249,13 @@ while True:
             wrongWords = ""
         else:
             print("to do")
+            for dLine in missingFiles:
+                print("drill: "+dLine)
+                typing = input("typed: ")
+                percent,mistake =  wordFeedback(dLine,typing)
+                print(str(percent)+"% Accuracy")
+                pauseScr()
+                clear()
+            print("Drill completed,\nPlease downlown the required files to run word drills\n\n")
+            print("more options with files, eg change the content of files = new drills")
             pauseScr()
