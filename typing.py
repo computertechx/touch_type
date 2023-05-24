@@ -99,9 +99,20 @@ def printReport(percentList,strWrongL):
             mistyped[ch] += 1
         else:
             mistyped[ch] = 1
-    print(mistyped)
-    print()
-# impurw funtion
+    if not mistyped == {} :
+        i = 0
+        mistypedF = ""
+        for mTyped in mistyped:
+            mistypedF += ("[" + str(mTyped) + ":"+ str(mistyped[mTyped]) +"] ")
+            i += 1
+            if i%4 == 0:
+                mistypedF += "\n"
+        print(mistypedF + "\n")
+    else:
+        print("[ no mistyped letters ]\n  return to nain menu")
+        pauseScr()
+
+# impure funtion
 def mistypedDrill(strCh,num):
     n = 5
     yesNo = "1"
