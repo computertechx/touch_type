@@ -201,18 +201,21 @@ while True:
             filePath = "./word_drill_2.txt"
         elif subChoice == "3":
             filePath = "./word_drill_3.txt"
-        with open(filePath) as dFile:
-            for dLine in dFile.readlines():
-                print("drill: " + dLine)
-                typing = input("typed: ")
-                percent,missedWords = wordFeedback(dLine,typing)
-                accuracyPerLine.append(percent)
-                wrongWords += missedWords
-                print("\n"+str(percent)+"% words matched")
+        if os.path.isfile(filePath):
+            with open(filePath) as dFile:
+                for dLine in dFile.readlines():
+                    print("drill: " + dLine)
+                    typing = input("typed: ")
+                    percent,missedWords = wordFeedback(dLine,typing)
+                    accuracyPerLine.append(percent)
+                    wrongWords += missedWords
+                    print("\n"+str(percent)+"% words matched")
+                    pauseScr()
+                    clear()
+                    #to do implement a wordChk feedback
+                print("Drill completed, return to main menu")
                 pauseScr()
-                clear()
-                #to do implement a wordChk feedback
-            print("Drill completed, return to main menu")
+                dFile.close()
+        else:
+            print("to do")
             pauseScr()
-            dFile.close()
-
