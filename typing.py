@@ -249,7 +249,6 @@ while True:
             accuracyPerLine = []
             wrongWords = ""
         else:
-            print("to do")
             for dLine in missingFiles:
                 print("drill: "+dLine)
                 typing = input("typed: ")
