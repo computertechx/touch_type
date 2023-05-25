@@ -161,7 +161,7 @@ def mistypedDrill(strCh,num,choiceNum):
             print(str(percent)+"% accurate")
             pauseScr()
         clear()
-        print("Drill completed, return to main menu")
+        print("[DRILL COMPLETED] \n return to main menu")
         pauseScr()
 
 # MAIN PROGRAN LOOP
@@ -171,6 +171,8 @@ while True:
     if choice == "1":
         clear()
         subChoice = menu(menuItems,2)
+        if subChoice == "":
+            subChoice = "1"
     elif choice == "2":
         clear()
         subChoice = menu(menuItems,1)
@@ -201,7 +203,7 @@ while True:
             mistypedDrill(wrongLetters + " ",lineWidth,choice)
         accuracyPerLine = []
         wrongLetters = ""
-    elif choice == "1":
+    elif choice == "1" and (subChoice == "1" or subChoice == "2"):
         clear()
         dLine =""
         for strCh in drills:
@@ -229,6 +231,8 @@ while True:
             filePath = "./word_drill_2.txt"
         elif subChoice == "3":
             filePath = "./word_drill_3.txt"
+        if filePath == "":
+            filePath = random.choice(["./word_drill_1.txt","./word_drill_2.txt","./word_drill_3.txt"])
         if os.path.isfile(filePath):
             with open(filePath) as dFile:
                 for dLine in dFile.readlines():
@@ -252,10 +256,22 @@ while True:
             for dLine in missingFiles:
                 print("drill: "+dLine)
                 typing = input("typed: ")
-                percent,mistake =  wordFeedback(dLine,typing)
+                percent,missedWords =  wordFeedback(dLine,typing)
+                accuracyPerLine.append(percent)
+                wrongWords += missedWords
                 print(str(percent)+"% Accuracy")
                 pauseScr()
                 clear()
-            print("Drill completed,\nPlease downlown the required files to run word drills\n\n")
-            print("more options with files, eg change the content of files = new drills")
+            printWordReport(accuracyPerLine,wrongWords)
+            if not wrongWords == "":
+                mistypedDrill(wrongWords,0,choice)
+                clear()
+            else:
+                pauseScr()
+                clear()
+                print("[DRILL COMPLETED]")
+            print("Please downlown the required files to run word drills\n")
+            print("more options with files, e.g change the content of files = new drills\n\n return to main menu")
             pauseScr()
+            accuracyPerLine = []
+            wrongWords = ""
