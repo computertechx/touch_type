@@ -1,8 +1,7 @@
 # touch_type
 A typing tutor/training program in python
 
-#Instructions
-typing basic-
+#Instructions(typing basic)
 Your left-hand finger 
 should be placed over 
 the [A, S, D, F] keys, 
