@@ -141,7 +141,7 @@ def printWordReport(percentList,mtypedWords):
 def mistypedDrill(strCh,num,choiceNum):
     n = 5
     yesNo = "1"
-    if yesNo == input("Practice using mistyped values\n yes:[ 1 ] no:[ 2 ]:"):
+    if yesNo == input("Practice using mistyped values\n yes:[ 1 ] no:[ 2 ]: ") :
         print()
         try:
             n = int(input("How many lines[Enter=5]: "))
@@ -236,6 +236,7 @@ while True:
         if os.path.isfile(filePath):
             with open(filePath) as dFile:
                 for dLine in dFile.readlines():
+                    dLine = dLine[0:-1]
                     print("drill: " + dLine)
                     typing = input("typed: ")
                     percent,missedWords = wordFeedback(dLine,typing)
