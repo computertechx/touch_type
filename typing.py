@@ -171,7 +171,7 @@ while True:
     if choice == "1":
         clear()
         subChoice = menu(menuItems,2)
-        if not subChoice == "1" or "2" or "3" or "4":
+        if not (subChoice == "1" or subChoice == "2" or subChoice == "3" or subChoice == "4"):
             subChoice = "1"
     elif choice == "2":
         clear()
